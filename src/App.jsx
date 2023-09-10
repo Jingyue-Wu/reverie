@@ -27,6 +27,17 @@ function App() {
     "/environments/stream.gif",
   ];
 
+  const preloadGIFs = (gifUrls) => {
+    gifUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  };
+
+  useEffect(() => {
+    preloadGIFs(backgroundList);
+  }, []);
+
   const storedIndex = localStorage.getItem('index');
   const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
