@@ -27,16 +27,17 @@ function App() {
     "/environments/stream.gif",
   ];
 
-  const preloadGIFs = (gifUrls) => {
-    gifUrls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  };
+  function preloadImage(url) {
+    var img = new Image();
+    img.src = url;
+  }
 
-  useEffect(() => {
-    preloadGIFs(backgroundList);
-  }, []);
+  // Preload all images in backgroundList
+  backgroundList.forEach((url) => {
+    preloadImage(url);
+  });
+
+  const [loading, setLoading] = useState(false);
 
   const storedIndex = localStorage.getItem('index');
   const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
@@ -49,7 +50,16 @@ function App() {
   const currentBackground = backgroundList[currentIndex];
 
   const cycle = () => {
-    setCurrentIndex((currentIndex + 1) % backgroundList.length);
+    setLoading(true);
+    const nextIndex = (currentIndex + 1) % backgroundList.length;
+
+    // Load the new GIF asynchronously
+    const img = new Image();
+    img.onload = () => {
+      setLoading(false); // Set isLoading back to false when the new GIF is loaded
+      setCurrentIndex(nextIndex);
+    };
+    img.src = backgroundList[nextIndex];
   };
 
 
@@ -87,8 +97,8 @@ function App() {
               <button className='bg-gray-500 p-4 w-full sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark hover:bg-hover-light dark:hover:bg-hover-dark' onClick={handleThemeSwitch}>
                 Toggle theme
               </button>
-              <button className='select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark hover:bg-hover-light dark:hover:bg-hover-dark' onClick={cycle}>
-                Change scene
+              <button className='select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark hover:bg-hover-light dark:hover:bg-hover-dark' onClick={loading ? null : cycle}>
+                {loading ? 'Loading...' : 'Change scene'}
               </button>
             </div>
             <div className='flex flex-col bg-gray-500 px-9 py-3 rounded-xl text-3xl sm:text-5xl flex-grow mb-9 xl:mb-0 justify-center bg-bg-light dark:bg-bg-dark'>
