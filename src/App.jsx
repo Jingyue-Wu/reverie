@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import AudioSlider from './components/AudioSlider';
 import Timer from './components/Timer';
@@ -7,14 +7,37 @@ import Timer from './components/Timer';
 function App() {
   const backgroundList = [
     "/environments/astro.gif",
+    "/environments/train.gif",
     "/environments/starry-night.gif",
     "/environments/field.gif",
     "/environments/rainy.gif",
     "/environments/sunset.gif",
     "/environments/starry.gif",
+    "/environments/aqua.gif",
+    "/environments/aurora.gif",
+    "/environments/bridge.gif",
+    "/environments/cafe.gif",
+    "/environments/chill.gif",
+    "/environments/city.gif",
+    "/environments/coffee.gif",
+    "/environments/cozy.gif",
+    "/environments/house.gif",
+    "/environments/lazy-day.gif",
+    "/environments/living.gif",
+    "/environments/mountain.gif",
+    "/environments/rain-forest.gif",
+    "/environments/stream.gif",
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const storedIndex = localStorage.getItem('index');
+  const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+
+  useEffect(() => {
+    localStorage.setItem('index', currentIndex.toString());
+  }, [currentIndex]);
+
   const currentBackground = backgroundList[currentIndex];
 
   const cycle = () => {
@@ -24,7 +47,7 @@ function App() {
   return (
     <>
 
-      <div className='flex justify-center xl:items-center h-screen mx-8 md:mx-16 3xl:mx-48 my-9 xl:my-0 select-no text-white'>
+      <div className='flex justify-center xl:items-center h-screen mx-8 md:mx-16 3xl:mx-48 my-9 xl:my-0 select-none text-white'>
 
         <div className='max-w-screen-2xl flex flex-col xl:flex-row flex-grow gap-9'>
 
@@ -42,17 +65,18 @@ function App() {
                 Light/Dark Mode
               </div>
 
-              <div className='hover:cursor-pointer select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl' onClick={cycle}> ←</div>
+              <div className='hover:cursor-pointer select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl' onClick={cycle}> Change scene</div>
             </div>
 
             <div className='flex flex-col bg-gray-500 px-9 py-3 rounded-xl text-3xl sm:text-5xl flex-grow mb-9 xl:mb-0'>
-              <h1 className='my-2 text-lg'>Audio</h1>
               <AudioSlider description="campfire" id="campfire" src="/audio/campfire.mp3" />
-              <AudioSlider description="cafe" id="cafe" src="/audio/cafe.mp3"/>
+              <AudioSlider description="cafe" id="cafe" src="/audio/cafe.mp3" />
               <AudioSlider description="waves" id="waves" src="/audio/ocean-asmr.mp3" />
               <AudioSlider description="train" id="train" src="/audio/subway.mp3" />
               <AudioSlider description="chatting" id="chatting" src="/audio/talking.mp3" />
-              <AudioSlider description="rain" id="rain" src="/audio/thunderstorm.mp3"/>
+              <AudioSlider description="rain" id="rain" src="/audio/thunderstorm.mp3" />
+              <AudioSlider description="nature" id="nature" src="/audio/nature.mp3" />
+              <AudioSlider description="music" id="music" src="/audio/lofi.mp3" />
             </div>
           </div>
 
