@@ -1,16 +1,14 @@
 import Slider from '@mui/material/Slider';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import "../App.css";
-
+import { useState, useEffect } from 'react';
 
 export default function AudioSlider(props) {
-
     const [sliderValue, setValue] = useState(0);
 
-    // MUI colours:
-    // common.black
-    // common.white
+
+    useEffect(() => {
+        setTheme(props.theme);
+    }, [props.theme]);
 
     const handleChange = (e, newVal) => {
         setValue(newVal);
@@ -19,11 +17,12 @@ export default function AudioSlider(props) {
         audio.volume = parseFloat(newVal);
     };
 
+    const [theme, setTheme] = useState(props.theme);
 
     return (
         <>
-            <div className='flex justify-between items-center'>
-                <div className='w-[50%] h-9 flex items-end'>
+            <div className='flex justify-between items-center flex-grow'>
+                <div className='w-[50%] h-8 flex items-end'>
                     <Slider
                         value={sliderValue}
                         step={0.01}
@@ -31,11 +30,11 @@ export default function AudioSlider(props) {
                         max={1.0}
                         onChange={handleChange}
                         sx={{
-                            color: 'common.white',
+                            color: theme === 'dark' ? 'common.white' : 'common.black',
                         }}
                     />
                 </div>
-                <p className='text-sm text-white'>{props.description}</p>
+                <p className='text-base text-white'>{props.description}</p>
             </div>
             <audio loop id={props.id} src={props.src}></audio>
         </>
@@ -46,4 +45,5 @@ AudioSlider.propTypes = {
     description: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    theme: PropTypes.string.isRequired,
 };
