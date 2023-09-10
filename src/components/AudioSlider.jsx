@@ -22,8 +22,8 @@ export default function AudioSlider(props) {
 
     return (
         <>
-            <div className='flex justify-between'>
-                <div className='w-[50%] h-9 flex items-center'>
+            <div className='flex justify-between items-center'>
+                <div className='w-[50%] h-9 flex items-end'>
                     <Slider
                         value={sliderValue}
                         step={0.01}
@@ -31,11 +31,11 @@ export default function AudioSlider(props) {
                         max={1.0}
                         onChange={handleChange}
                         sx={{
-                            color: 'common.black',
+                            color: 'common.white',
                         }}
                     />
                 </div>
-                <p className='text-sm'>{props.description}</p>
+                <p className='text-sm text-white'>{props.description}</p>
             </div>
             <audio loop id={props.id} src={props.src}></audio>
         </>

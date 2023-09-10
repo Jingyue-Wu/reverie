@@ -35,13 +35,14 @@ export default function App() {
       {counter === 0 ? (
         <div>break time ^^</div>
       ) : (
-        <div>
-          {minutes < 10 ? "0" : ""}
-          {minutes}:{seconds < 10 ? "0" : ""}
-          {seconds}
+        <div className="flex flex-col gap-2">
+          <h1>
+            {minutes < 10 ? "0" : ""}
+            {minutes}:{seconds < 10 ? "0" : ""}
+            {seconds}
+          </h1>
           <div>
-            <button className="reset-button" onClick={resetTimer}>
-
+            <button className="reset-button text-lg bg-slate-300 rounded-xl px-3 py-2" onClick={resetTimer}>
               <i className="" ></i> Reset
             </button>
           </div>
