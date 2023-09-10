@@ -70,13 +70,13 @@ export default function Timer() {
           {seconds}
         </h1>
         <div className="flex items-between gap-3 mt-2">
-          <button className={`reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark ${status ? 'border-light border-opacity-100 border-2' : 'border-0'}`} onClick={work}>
+          <button className={`reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark w-[80px] hover:bg-hover-light dark:hover:bg-hover-dark ${status ? 'border-dark dark:border-light border-opacity-100 border-2' : 'border-0'}`} onClick={work}>
             Work
           </button>
-          <button className={`reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark ${!status ? 'border-light border-opacity-100 border-2' : 'border-0'}`} onClick={rest}>
+          <button className={`reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark w-[80px] hover:bg-hover-light dark:hover:bg-hover-dark ${!status ? 'border-dark dark:border-light border-opacity-100 border-2' : 'border-0'}`} onClick={rest}>
             Break
           </button>
-          <button className="reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark " onClick={toggleStart}>
+          <button className="reset-button text-lg bg-slate-300 rounded-xl px-4 py-1 bg-light dark:bg-dark w-[80px] hover:bg-hover-light dark:hover:bg-hover-dark" onClick={toggleStart}>
             {start ? "Pause" : "Start"}
           </button>
         </div>

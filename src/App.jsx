@@ -73,10 +73,10 @@ function App() {
               <Timer />
             </div>
             <div className='flex flex-row gap-4 sm:gap-6 '>
-              <button className='bg-gray-500 p-4 w-full sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark' onClick={handleThemeSwitch}>
+              <button className='bg-gray-500 p-4 w-full sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark hover:bg-hover-light dark:hover:bg-hover-dark' onClick={handleThemeSwitch}>
                 Toggle theme
               </button>
-              <button className='select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark' onClick={cycle}>
+              <button className='select-none bg-gray-500 p-2 w-full sm:p-3 sm:w-1/2 rounded-xl bg-bg-light dark:bg-bg-dark hover:bg-hover-light dark:hover:bg-hover-dark' onClick={cycle}>
                 Change scene
               </button>
             </div>

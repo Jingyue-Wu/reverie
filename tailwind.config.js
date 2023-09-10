@@ -13,6 +13,8 @@ export default {
       'bg-dark': '#2D2D2D',
       'text-light': '#0D1117',
       'text-dark': '#FFFFFF',
+      'hover-light': '#CFCFCF',
+      'hover-dark': '#424242',
     },
     extend: {
       screens: {
