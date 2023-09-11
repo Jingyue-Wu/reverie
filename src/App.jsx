@@ -84,8 +84,8 @@ function App() {
 
   return (
     <>
-      <div className='flex justify-center xl:items-center h-screen overflow-y-auto px-8 md:px-16 3xl:px-48 py-9 xl:py-0 select-none text-text-light dark:text-text-dark bg-light dark:bg-dark'>
-        <div className='max-w-screen-2xl flex flex-col xl:flex-row flex-grow gap-4 xl:gap-9'>
+      <div className='flex justify-center xl:items-center h-screen overflow-y-auto px-8 md:px-16 3xl:px-48 py-9 xl:py-0 select-none text-text-light dark:text-text-dark bg-light dark:bg-dark overflow-x-hidden	'>
+        <div className='max-w-screen-2xl flex flex-col xl:flex-row flex-grow gap-4 sm:gap-6 xl:gap-9'>
           <div className='w-full xl:w-[65vw] h-[85vh] flex justify-center items-center 3xl:w-[65vw]'>
             <img className='w-full h-full object-cover rounded-xl pointer-events-none' src={currentBackground} alt="" />
           </div>
