@@ -1,14 +1,11 @@
-# React + Vite
+# Reverie
+Study or relax in your own peaceful environemnt.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
+![Screenshot 2023-09-10 201329](https://github.com/Jingyue-Wu/reverie/assets/75918217/f18d8055-4034-4a9f-89ea-0aa2419bc97e)
 
 ### Sounds
+- Music: https://www.youtube.com/watch?v=Mhh4hFz1Aiw
+
 - Thunder: https://www.youtube.com/watch?v=7Vc4-FDGBxo&t=6s
 
 - Ocean Waves: https://youtube.com/shorts/dGffp8IFqIc?si=XLQPk6i4QakvbCMC
@@ -21,6 +18,7 @@ Currently, two official plugins are available:
 
 - Campfire: https://www.youtube.com/watch?v=75R4nDs6jSs
   
-- Music: https://www.youtube.com/watch?v=Mhh4hFz1Aiw
+- Nature: https://pixabay.com/sound-effects/search/wind/
 
+### Art
 - Art by [Miena](https://mienar.tumblr.com) @ Tumblr
