@@ -1,5 +1,5 @@
 # Reverie
-Study or relax in your own peaceful environemnt.
+Study or relax in your own peaceful environment.
 
 ![Screenshot 2023-09-10 201329](https://github.com/Jingyue-Wu/reverie/assets/75918217/f18d8055-4034-4a9f-89ea-0aa2419bc97e)
 
